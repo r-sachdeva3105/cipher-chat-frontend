@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Text Chat - OmegleWeb: Chat with Strangers!</title> <!-- More descriptive title -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Join OmegleWeb to chat with strangers online, find new friends, and share interests in a safe, moderated environment. Engage in meaningful conversations today!">
+  <meta name="keywords" content="OmegleWeb, Chat with Strangers, Online Chat, Meet New Friends, Safe Chatting, Online Conversation, Social Platform"> <!-- Relevant keywords -->
+  <link rel="icon" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+  <link rel="stylesheet" href="css/chat-phone.css" />
+  <!-- Google Analytics and Ads scripts -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEE73QG0DL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JEE73QG0DL');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <!-- top bar -->
+    <div id="top-bar">
+      <div id="logo">
+        <img src="/assets/logo.png" alt="OmegleWeb">
+      </div>
+      <div id="top-right">
+        <div id="peopleOnline">
+          <p><span>0</span>+ online</p>
+        </div>
+        <!-- <button id="feedback-btn" class="button">Feedback</button> -->
+      </div>
+    </div>
+
+    <!-- message area -->
+    <div id="message-area">
+      <div id="messages"></div>
+      <div id="typing" style="display: none; color: grey; font-style: italic;" class="message">Stranger is typing...</div>
+    </div>
+
+    <!-- input area -->
+    <div id="input-area">
+      <button class="button" id="skip-btn">Skip<span>Esc</span></button>
+      <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+      <button class="button" id="send-btn">Send<span>Enter</span></button>
+    </div>
+  </div>
+
+  <!-- feedback popup -->
+  <div id="feedbackModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Provide Feedback</h2>
+      <form id="feedbackForm">
+        <textarea id="feedbackText" rows="10" placeholder="Your feedback..." required></textarea>
+        <input type="submit" class="button" id="submit-btn" value="Submit" />
+      </form>
+    </div>
+  </div>
+
+  <script defer src="./js/main.js"></script>
+  <script defer src="./js/chat.js" type="module"></script>
+  <script type="text/javascript">
+var sc_project=12950168; 
+var sc_invisible=1; 
+var sc_security="61b8995e"; 
+</script>
+
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12950168/0/61b8995e/1/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+</body>
+
+</html>
