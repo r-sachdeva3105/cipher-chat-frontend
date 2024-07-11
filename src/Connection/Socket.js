@@ -12,16 +12,14 @@ export const socket = io(URL, {
 
 const Socket = () => {
 
-    const { userId, setUserId, setIsConnected, setMessages, setOnlineUsers, setReceiver, setIsSearching, setIsTyping, setMessage, setIsSending } = useChat()
+    const { setUserId, setIsConnected, setMessages, setOnlineUsers, setReceiver, setIsSearching, setIsTyping, setMessage, setIsSending } = useChat()
 
     useEffect(() => {
 
         socket.connect()
-        console.log("connected..")
 
         return () => {
             socket.disconnect()
-            console.log("disconnected..")
         };
 
     }, []);
@@ -97,7 +95,6 @@ const Socket = () => {
         })
 
         return () => {
-
             socket.off('getUsers')
             socket.off('sendMessage')
             socket.off('addNewUser')

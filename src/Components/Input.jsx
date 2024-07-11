@@ -1,18 +1,12 @@
-import React, { useContext, useEffect } from 'react'
-import { ThemeContext } from '../Context/ThemeContext'
+import React from 'react'
 import { useChat } from "../Context/ChatContext"
 import { socket } from '../Connection/Socket'
-import { useNavigate } from 'react-router-dom'
 
 const Input = () => {
 
-    const { theme, themeName } = useContext(ThemeContext)
-    const { userId, isSearching, setIsSearching, receiver, setReceiver, setMessages, isSending, setIsSending, message, setMessage, setIsTyping } = useChat()
+    const { userId, isSearching, setIsSearching, receiver, setReceiver, messages, setMessages, isSending, setIsSending, message, setMessage, setIsTyping } = useChat()
     const $ = (x) => document.querySelector(x)
     let skipConfirm = false
-    const navigate = useNavigate()
-    console.log("receiver: ", receiver);
-    console.log("isSearching: ", isSearching);
 
     const newChat = () => {
         setIsSearching(true)
@@ -54,19 +48,26 @@ const Input = () => {
         setIsSending(true)
         socket.emit('sendMessage', receiver, message, () => {
             setMessage('')
+            setIsTyping(false)
         })
         $('#chatBox').value = ''
+        console.log(messages)
 
     }
 
-    const handleKeyPress = (e) => {
+    const handleKeyDown = (e) => {
         if (e.key === 'Escape') {
+            e.preventDefault()
             skipChat()
-            e.preventDefault()
         }
-        if (e.key === 'Enter') {
-            sendMessage()
+        else if (e.key === 'Enter') {
             e.preventDefault()
+            sendMessage()
+        }
+        else {
+            socket.emit('typing', receiver, () => {
+                setIsTyping(true)
+            })
         }
     }
 
@@ -93,7 +94,7 @@ const Input = () => {
                 name="chatBox"
                 id="chatBox"
                 onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={(e) => handleKeyPress(e)}
+                onKeyDown={(e) => handleKeyDown(e)}
                 value={message}
                 className="outline-none outline-offset-0 focus:outline-sky-500 text-gray-800 px-4 text-md md:text-lg shadow-md border rounded-lg
                     basis-4/5 md:basis-4/6 lg:basis-5/6 read-only:cursor-not-allowed read-only:focus:outline-none"

@@ -4,9 +4,8 @@ import { useChat } from "../Context/ChatContext"
 
 const Messages = () => {
 
-    const { theme, themeName } = useContext(ThemeContext)
-    const { userId, isSearching, setIsSearching, receiver, messages, setMessages, isTyping, message } = useChat()
-    console.log(messages);
+    const { themeName } = useContext(ThemeContext)
+    const { isSearching, receiver, messages, isTyping } = useChat()
 
     return (
         <div className={"h-[84vh] flex flex-col justify-end rounded-lg shadow-md px-4 py-2 transition duration-500 " + (themeName === "darkTheme" ? "bg-gray-700" : "bg-gray-50")}>
