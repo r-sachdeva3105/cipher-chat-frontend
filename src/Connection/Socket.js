@@ -100,7 +100,7 @@ const Socket = () => {
             socket.off('addNewUser')
             socket.off('paired')
         };
-    }, []);
+    }, [setUserId, setIsConnected, setMessages, setOnlineUsers, setReceiver, setIsSearching, setIsTyping, setMessage, setIsSending]);
 }
 
 export default Socket

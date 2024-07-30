@@ -4,7 +4,7 @@ import { socket } from '../Connection/Socket'
 
 const Input = () => {
 
-    const { userId, isSearching, setIsSearching, receiver, setReceiver, messages, setMessages, isSending, setIsSending, message, setMessage, setIsTyping } = useChat()
+    const { userId, isSearching, setIsSearching, receiver, setReceiver, setMessages, isSending, setIsSending, message, setMessage, setIsTyping } = useChat()
     const $ = (x) => document.querySelector(x)
     let skipConfirm = false
 
@@ -51,7 +51,6 @@ const Input = () => {
             setIsTyping(false)
         })
         $('#chatBox').value = ''
-        console.log(messages)
 
     }
 

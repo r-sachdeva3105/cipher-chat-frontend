@@ -17,9 +17,7 @@ if (
 }
 
 root.render(
-  <React.StrictMode>
-    <ChatContextProvider>
-      <App />
-    </ChatContextProvider>
-  </React.StrictMode>
+  <ChatContextProvider>
+    <App />
+  </ChatContextProvider>
 );
